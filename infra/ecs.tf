@@ -69,7 +69,7 @@ resource "aws_ecs_task_definition" "backend" {
  container_definitions = jsonencode([
    {
      name      = var.backend_container_name
-     image     = "fsouzafs/adopet-service:0.0.1"
+     image     = "fsouzafs/adopet-service:1.0.0"
      cpu       = 256
      memory    = 512
      essential = true

@@ -40,7 +40,7 @@ resource "aws_key_pair" "my-ssh-key" {
 resource "aws_launch_template" "ecs_lt" {
  name_prefix   = "ecs-template"
  image_id      = data.aws_ssm_parameter.ami.value
- instance_type = "t2.micro"
+ instance_type = "t2.small"
 
  key_name               = aws_key_pair.my-ssh-key.key_name
  vpc_security_group_ids = [aws_security_group.security_group.id]
@@ -73,7 +73,7 @@ EOF
 resource "aws_autoscaling_group" "ecs_asg" {
  vpc_zone_identifier = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
  desired_capacity    = 2
- max_size            = 3
+ max_size            = 4
  min_size            = 1
 
  launch_template {
