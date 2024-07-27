@@ -114,7 +114,7 @@ resource "aws_ecs_task_definition" "frontend" {
  container_definitions = jsonencode([
    {
      name      = var.frontend_container_name
-     image     = "fsouzafs/adopet-web:0.0.4"
+     image     = "fsouzafs/adopet-web:1.0.0"
      cpu       = 256
      memory    = 512
      essential = true
